@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 3
   tags:
   - Pared
+  - Asteroide
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Pared
   - Water
   - UI
   - 

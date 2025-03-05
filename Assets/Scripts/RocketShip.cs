@@ -6,7 +6,7 @@ public class RocketShip : MonoBehaviour
 {
     [SerializeField] public Rigidbody rb;
 
-    [SerializeField] public GameObject Bala;
+    [SerializeField] public GameObject BalaPrfb;
 
     [SerializeField] public Transform puntoDisparo;
 
@@ -21,8 +21,6 @@ public class RocketShip : MonoBehaviour
     [SerializeField] public float currentTorque;
     [SerializeField] public float currentSpeed;
 
-
-
     public void Start()
     {
         Renderer rend = GetComponent<Renderer>();
@@ -35,11 +33,11 @@ public class RocketShip : MonoBehaviour
     {
         Rotacion();
         Movimiento();
-        LimitarValores();
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            Disparo();
-        }
+        LimitarValores();                
+    }
+    public void Update()
+    {
+        Disparo();
     }
     public void Rotacion()
     {
@@ -74,18 +72,30 @@ public class RocketShip : MonoBehaviour
         {
             rb.angularVelocity = rb.angularVelocity.normalized * Maxtorque;
         }
-    }    
+    }
     public void Disparo()
     {
-        if (Bala != null && puntoDisparo != null)
-        {            
-            GameObject nuevaBala = Instantiate(Bala, puntoDisparo.position, puntoDisparo.rotation);            
-            Rigidbody rb = nuevaBala.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                rb.AddForce(puntoDisparo.forward);
-            }
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            GameObject nuevaBala = Instantiate(BalaPrfb, puntoDisparo.position, puntoDisparo.rotation);
+            Bala scriptBala = nuevaBala.GetComponent<Bala>();
+            scriptBala.SetBulletSpeed(speed);
+        }        
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Pared"))
+        {
+            Mat.SetColor("_Color", Color.red);
         }
     }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Pared"))
+        {
+            Mat.SetColor("_Color", Color.cyan);
+        }
+    }
+
 }
 
