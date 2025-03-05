@@ -29,6 +29,5 @@ public class Asteroide : MonoBehaviour
     private void DestruirAsteroide()
     {        
         Destroy(gameObject);
-        spawner.Reinstanciar();
     }
 }

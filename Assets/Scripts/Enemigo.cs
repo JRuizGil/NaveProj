@@ -7,7 +7,7 @@ public class Enemigo : MonoBehaviour
     private float freqX, freqY, ampX, ampY;
     private float timeOffset;
 
-    public Spawner spawner;  // Referencia al Spawner
+    public Spawner spawner;  
 
     void Start()
     {
@@ -37,16 +37,11 @@ public class Enemigo : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Enemigo colisionó con el jugador.");
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+                Application.Quit();
+#endif
         }
-    }
-
-    // Llamado cuando el enemigo es destruido
-    private void OnDestroy()
-    {
-        if (spawner != null)
-        {
-            spawner.Reinstanciar(); // Llama al método para instanciar un nuevo enemigo
-        }
-    }
+    }       
 }
