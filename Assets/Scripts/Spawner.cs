@@ -28,6 +28,10 @@ public class Spawner : MonoBehaviour
         {
             asteroide.spawner = this;
         }
+        if (objeto.TryGetComponent<Enemigo>(out Enemigo enemigo))
+        {
+            enemigo.spawner = this;
+        }
 
         return objeto;
     }
