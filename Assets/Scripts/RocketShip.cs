@@ -4,22 +4,22 @@ using UnityEngine.UIElements;
 
 public class RocketShip : MonoBehaviour
 {
-    [SerializeField] public Rigidbody rb;
+    public Rigidbody rb;
 
-    [SerializeField] public GameObject BalaPrfb;
+    public GameObject BalaPrfb;
 
-    [SerializeField] public Transform puntoDisparo;
+    public Transform puntoDisparo;
 
-    [SerializeField] public Material Mat;
+    public Material Mat;
 
-    [SerializeField] public float torque = 2f;
-    [SerializeField] public float Maxtorque = 5f;
+    public float torque = 2f;
+    public float Maxtorque = 5f;
 
-    [SerializeField] public float speed = 10f;
-    [SerializeField] public float maxSpeed = 5f;
+    public float speed = 10f;
+    public float maxSpeed = 5f;
 
-    [SerializeField] public float currentTorque;
-    [SerializeField] public float currentSpeed;
+    public float currentTorque;
+    public float currentSpeed;
 
     public void Start()
     {

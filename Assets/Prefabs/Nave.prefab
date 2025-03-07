@@ -275,7 +275,7 @@ MonoBehaviour:
   Mat: {fileID: 2100000, guid: b0efefea77967fb4aa5c898cabd358dd, type: 2}
   torque: 2
   Maxtorque: 3
-  speed: 10
+  speed: 5
   maxSpeed: 5
   currentTorque: 0
   currentSpeed: 0

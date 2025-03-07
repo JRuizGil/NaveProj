@@ -21,12 +21,7 @@ public class Bala : MonoBehaviour
         if (collision.gameObject.CompareTag("Pared"))
         {
             Destroy(gameObject);
-        }
-        if (collision.gameObject.CompareTag("Enemigo"))
-        {
-            Destroy(gameObject);
-            Destroy(collision.gameObject);
-        }
+        }        
     }
 }
 
